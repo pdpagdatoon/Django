@@ -1,0 +1,10 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<p>Home page for the Visual Studio Code Django tutorial.</p> 
+<p>Patrick David Pagdatoon</p>
+<p>IS 218-003</p>
+{{ date | date:'l, d F, Y' }}
+{% endblock %}

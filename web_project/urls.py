@@ -17,8 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from hello import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path("", include("hello.urls")),
     path("admin/", admin.site.urls),
+    path("hello/<str:name>/", views.hello_there, name="hello_there"),
+    path("about/", views.about, name="about"),
+    path("contact/", views.contact, name="contact"),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
