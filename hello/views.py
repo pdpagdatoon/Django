@@ -10,4 +10,4 @@ def home(request): # when you want to make a page with comments, copy this funct
     return render(request, "hello/home.html", { 
         "comment_form": comment_form,
         "comments": comments,
-    })
+    }) 
