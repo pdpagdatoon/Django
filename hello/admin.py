@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import AdminComment
-
+from .models import Product
 
 @admin.register(AdminComment)
 class AdminCommentAdmin(admin.ModelAdmin):
@@ -10,3 +10,5 @@ class AdminCommentAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.user = request.user
         super().save_model(request, obj, form, change)
+
+admin.site.register(Product)

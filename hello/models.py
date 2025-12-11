@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.utils.text import slugify
+from django.urls import reverse 
 
 User = get_user_model()
 
@@ -20,5 +22,27 @@ class Comment(models.Model):
     class Meta:
         ordering = ("-created_at",)
 
+
+def __str__(self):
+    """Returns a string representation of a message."""
+    date = timezone.localtime(self.log_date)
+    return f"'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
+
+
+class Product(models.Model):
+    title = models.CharField(max_length=40) #allowing the admin to create a title for a new product
+    group = models.CharField(max_length=15) #either an instrument or an equipment
+    description = models.CharField(max_length=250)
+    pricing = models.CharField(max_length=10)
+
+    slug = models.SlugField(default="", null=False, db_index=True)
+
+    def get_absolute_url(self):
+        return reverse("product-detail",args=[self.slug])
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super.save(*args, **kwargs)
+    
     def __str__(self):
-        return f"{self.name} on {self.page_identifier}"
+        return f"{self.title}"
