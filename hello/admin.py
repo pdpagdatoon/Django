@@ -11,4 +11,8 @@ class AdminCommentAdmin(admin.ModelAdmin):
         obj.user = request.user
         super().save_model(request, obj, form, change)
 
-admin.site.register(Product)
+
+class ProductAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+
+admin.site.register(Product, ProductAdmin)
