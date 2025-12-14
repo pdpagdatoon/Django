@@ -5,26 +5,20 @@
 {% block content %}
     <style>
         :root {
-            /* Variables need to be defined here, though they may not be accessible outside this block */
             --light-pink: #CE7B91;
             --light-blue: #C0E8F9; 
             --dark-purple: #2E294E; 
             --light-purple: #BE97C6; 
             --white: #FFFFFF; 
         }
-
-        /* Targeting the .body-content wrapper from layout.html 
-           to apply the product page's background and centering styles.
-           This attempts to mimic the original full-page product layout. */
         .body-content {
-            background-color: #E85D75; /* This color was specified in the original file's second style block */
+            background-color: #E85D75; 
             color: #8B0000;
             font-family: 'Georgia', serif;
-            /* Attempting to re-center the content within the body-content wrapper */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 100px); /* Adjust height for navbar/footer */
+            min-height: calc(100vh - 100px); 
         }
         
         .product-card {
@@ -113,3 +107,4 @@
         </div>
     </div>
 {% endblock %}
+
