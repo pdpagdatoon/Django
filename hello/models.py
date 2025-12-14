@@ -33,8 +33,8 @@ def __str__(self):
 class Product(models.Model):
     title = models.CharField(max_length=40) #allowing the admin to create a title for a new product
     group = models.CharField(max_length=15) #either an instrument or an equipment
-    description = models.CharField(max_length=250)
-    pricing = models.CharField(max_length=10)
+    description = models.TextField()
+    pricing = models.DecimalField(max_digits=8, decimal_places= 2)
 
     slug = models.SlugField(default="", null=False, db_index=True)
 
@@ -42,4 +42,4 @@ class Product(models.Model):
         return reverse("product-detail",args=[self.slug])
 
     def __str__(self):
-        return f"{self.title}"
+        return self.title

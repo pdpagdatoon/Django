@@ -1,0 +1,10 @@
+{% extends "hello/layout.html" %}
+
+{% block content %}
+<h1>{{ product.title }}</h1>
+<br>
+<p>{{ product.description }}</p>
+
+<p><strong>Price: $</strong> ${{ product.pricing }}</p>
+
+{% endblock %}
