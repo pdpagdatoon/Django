@@ -16,29 +16,32 @@
             {% block content %}
             {% endblock %}
 
+
+            {% if show_comments %}
             <div class="comment-section">
                 <h3>Comments</h3>
 
                 <form method="POST">
-                    {% csrf_token %}
-                    {{ comment_form.as_p }}
-                    <button type="submit" name="comment_submit">Submit</button>
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit" name="comment_submit">Submit</button>
                 </form>
 
                 <hr>
 
                 {% if comments %}
-                    {% for comment in comments %}
-                        <div style="margin-bottom:15px; padding:10px;">
-                            <strong>{{ comment.name }}</strong>
-                            <small>{{ comment.created_at }}</small>
-                            <p>{{ comment.comment }}</p>
-                        </div>
-                    {% endfor %}
+                {% for comment in comments %}
+                    <div style="margin-bottom:15px; padding:10px;">
+                    <strong>{{ comment.name }}</strong>
+                    <small>{{ comment.created_at }}</small>
+                    <p>{{ comment.comment }}</p>
+                    </div>
+                {% endfor %}
                 {% else %}
-                    <p>No comments yet.</p>
+                <p>No comments yet.</p>
                 {% endif %}
             </div>
+            {% endif %}
 
 
             <hr/>
