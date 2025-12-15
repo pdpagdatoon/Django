@@ -13,6 +13,7 @@ def home(request):
 
 # part of generating a page when adding a product through admin
 class ProductDetailView(DetailView):
+    comment_form, comments = handle_comment_section(request)
     model = Product
     template_name = "hello/product_detail.html"
     context_object_name = "product"
@@ -27,11 +28,83 @@ class ProductDetailView(DetailView):
 
 
 
-def audiomixer_page(request): return render(request, "hello/audiomixer.html")
-def earbuds_page(request): return render(request, "hello/earbuds.html")
-def jackcable_page(request): return render(request, "hello/jackcable.html")
-def compacteddisc_page(request): return render(request, "hello/CompactedDisc.html")
-def cdplayer_page(request): return render(request, "hello/CDplayer.html")
-def drums_page(request): return render(request, "hello/drums.html")
-def guitar_page(request): return render(request, "hello/guitar.html")
-def piano_page(request): return render(request, "hello/piano.html")
+def audiomixer_page(request): 
+    comment_form, comments = handle_comment_section(request)
+    products = Product.objects.all().order_by("group", "title")
+    return render(request, "hello/audiomixer.html", {
+        "products": products,
+        "show_comments": True,
+        "comment_form": comment_form,
+        "comments": comments,
+    })
+
+def earbuds_page(request):
+    comment_form, comments = handle_comment_section(request)
+    products = Product.objects.all().order_by("group", "title")
+    return render(request, "hello/earbuds.html", {
+        "products": products,
+        "show_comments": True,
+        "comment_form": comment_form,
+        "comments": comments,
+    })
+
+def jackcable_page(request): 
+    comment_form, comments = handle_comment_section(request)
+    products = Product.objects.all().order_by("group", "title")
+    return render(request, "hello/jackcable.html", {
+        "products": products,
+        "show_comments": True,
+        "comment_form": comment_form,
+        "comments": comments,
+    })
+
+def compacteddisc_page(request): 
+    comment_form, comments = handle_comment_section(request)
+    products = Product.objects.all().order_by("group", "title")
+    return render(request, "hello/CompactedDisc.html", {
+        "products": products,
+        "show_comments": True,
+        "comment_form": comment_form,
+        "comments": comments,
+    })
+
+def cdplayer_page(request): 
+    comment_form, comments = handle_comment_section(request)
+    products = Product.objects.all().order_by("group", "title")
+    return render(request, "hello/CDplayer.html", {
+        "products": products,
+        "show_comments": True,
+        "comment_form": comment_form,
+        "comments": comments,
+    })
+
+def drums_page(request): 
+    comment_form, comments = handle_comment_section(request)
+    products = Product.objects.all().order_by("group", "title")
+    return render(request, "hello/drums.html", {
+        "products": products,
+        "show_comments": True,
+        "comment_form": comment_form,
+        "comments": comments,
+    })
+
+def guitar_page(request): 
+    comment_form, comments = handle_comment_section(request)
+    products = Product.objects.all().order_by("group", "title")
+    return render(request, "hello/guitar.html", {
+        "products": products,
+        "show_comments": True,
+        "comment_form": comment_form,
+        "comments": comments,
+    })
+
+def piano_page(request): 
+    comment_form, comments = handle_comment_section(request)
+    products = Product.objects.all().order_by("group", "title")
+    return render(request, "hello/piano.html", {
+        "products": products,
+        "show_comments": True,
+        "comment_form": comment_form,
+        "comments": comments,
+    })
+
