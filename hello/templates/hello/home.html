@@ -1,94 +1,62 @@
 {% extends "hello/layout.html" %}
-
 {% block title %}Home{% endblock %}
-
 {% block content %}
 
-  <div class="home-hero">
-    <h1 class="page-title">Music Object Display Forum</h1>
-    <p class="page-subtitle">Click a product to view the custom product page.</p>
-  </div>
+<div class="home-hero">
+  <h1 class="page-title">Music Object Display Forum</h1>
+  <p class="page-subtitle">Click a product to view the custom product page.</p>
+</div>
 
-  <div class="card-grid">
-    <a class="card" href="{% url 'preview-audiomixer' %}">
-      <div class="card-title">Audio Mixer</div>
-      <div class="card-desc">Studio mixing, controls, and audio balancing.</div>
+<div class="card-grid">
+
+  <a class="card" href="{% url 'preview-audiomixer' %}">
+    <div class="card-title">Audio Mixer</div>
+    <div class="card-desc">Studio mixing, controls, and audio balancing.</div>
+  </a>
+
+  <a class="card" href="{% url 'preview-earbuds' %}">
+    <div class="card-title">Earbuds</div>
+    <div class="card-desc">Portable listening and daily use.</div>
+  </a>
+
+  <a class="card" href="{% url 'preview-jackcable' %}">
+    <div class="card-title">Jack Cable</div>
+    <div class="card-desc">Audio cable for instruments and equipment.</div>
+  </a>
+
+  <a class="card" href="{% url 'preview-compacteddisc' %}">
+    <div class="card-title">Blank CD</div>
+    <div class="card-desc">Physical media for storing audio.</div>
+  </a>
+
+  <a class="card" href="{% url 'preview-cdplayer' %}">
+    <div class="card-title">CD Player</div>
+    <div class="card-desc">Classic playback for your music collection.</div>
+  </a>
+<a class="card" href="{% url 'preview-drums' %}">
+    <div class="card-title">Drum Set</div>
+    <div class="card-desc">Percussion setup for rhythm and practice.</div>
+  </a>
+
+  <a class="card" href="{% url 'preview-guitar' %}">
+    <div class="card-title">Electric Guitar</div>
+    <div class="card-desc">Custom guitar page with styling.</div>
+  </a>
+
+  <a class="card" href="{% url 'preview-piano' %}">
+    <div class="card-title">Piano</div>
+    <div class="card-desc">Keys and chords for every genre.</div>
+  </a>
+
+
+  {% for p in products %}
+    <a class="card" href="{% url 'product-detail' p.slug %}">
+      <div class="card-title">{{ p.title }}</div>
+      <div class="card-desc">{{ p.group }}</div>
+      <div class="card-desc">{{ p.description }}</div>
+      <div class="card-desc"><strong>${{ p.pricing }}</strong></div>
     </a>
-
-    <a class="card" href="{% url 'preview-earbuds' %}">
-      <div class="card-title">Earbuds</div>
-      <div class="card-desc">Portable listening and daily use.</div>
-    </a>
-
-    <a class="card" href="{% url 'preview-jackcable' %}">
-      <div class="card-title">Jack Cable</div>
-      <div class="card-desc">Audio cable for instruments and equipment.</div>
-    </a>
-
-    <a class="card" href="{% url 'preview-compacteddisc' %}">
-      <div class="card-title">Blank CD</div>
-      <div class="card-desc">Physical media for storing audio.</div>
-    </a>
-
-    <a class="card" href="{% url 'preview-cdplayer' %}">
-      <div class="card-title">CD Player</div>
-      <div class="card-desc">Classic playback for your music collection.</div>
-    </a>
-
-    <a class="card" href="{% url 'preview-drums' %}">
-      <div class="card-title">Drum Set</div>
-      <div class="card-desc">Percussion setup for rhythm and practice.</div>
-    </a>
-
-    <a class="card" href="{% url 'preview-guitar' %}">
-      <div class="card-title">Electric Guitar</div>
-      <div class="card-desc">Custom guitar page with styling.</div>
-    </a>
-
-    <a class="card" href="{% url 'preview-piano' %}">
-      <div class="card-title">Piano</div>
-      <div class="card-desc">Keys and chords for every genre.</div>
-    </a>
-  </div>
-
-
-
-  <!--
-
-
-  <h2>Equipment</h2>
-  <ul>
-    {% for p in products %}
-      {% if p.group|lower == "equipment" %}
-        <li>
-          <a href="{% url 'product-detail' p.slug %}">{{ p.title }}</a>
-          — {{ p.pricing }}
-        </li>
-      {% endif %}
-    {% empty %}
-      <li>No products yet.</li>
-    {% endfor %}
-
-    
-  </ul>
-
-  <h2>Instruments</h2>
-  <ul>
-    {% for p in products %}
-      {% if p.group|lower == "instrument" or p.group|lower == "instruments" %}
-        <li>
-          <a href="{% url 'product-detail' p.slug %}">{{ p.title }}</a>
-          — {{ p.pricing }}
-        </li>
-      {% endif %}
-    {% empty %}
-      <li>No products yet.</li>
-    {% endfor %}
-  </ul>
-
-
--->
-
-
+  {% endfor %}
+</div>
 
 {% endblock %}
