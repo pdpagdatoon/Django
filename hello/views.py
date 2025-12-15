@@ -25,3 +25,13 @@ class ProductDetailView(DetailView):
         context["show_comments"] = True
         return context
 
+
+
+def audiomixer_page(request): return render(request, "hello/audiomixer.html")
+def earbuds_page(request): return render(request, "hello/earbuds.html")
+def jackcable_page(request): return render(request, "hello/jackcable.html")
+def compacteddisc_page(request): return render(request, "hello/CompactedDisc.html")
+def cdplayer_page(request): return render(request, "hello/CDplayer.html")
+def drums_page(request): return render(request, "hello/drums.html")
+def guitar_page(request): return render(request, "hello/guitar.html")
+def piano_page(request): return render(request, "hello/piano.html")

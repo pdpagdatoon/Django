@@ -6,6 +6,20 @@
   <h1>Music Object Display Forum</h1>
   <p>Select a product to view details and leave a review.</p>
 
+
+  <h2>Products</h2>
+    <ul>
+      <li><a href="{% url 'preview-audiomixer' %}">Audio Mixer</a></li>
+      <li><a href="{% url 'preview-earbuds' %}">Earbuds</a></li>
+      <li><a href="{% url 'preview-jackcable' %}">Jack Cable</a></li>
+      <li><a href="{% url 'preview-compacteddisc' %}">Blank CD</a></li>
+      <li><a href="{% url 'preview-cdplayer' %}">CD Player</a></li>
+      <li><a href="{% url 'preview-drums' %}">Drum Set</a></li>
+      <li><a href="{% url 'preview-guitar' %}">Electric Guitar</a></li>
+      <li><a href="{% url 'preview-piano' %}">Piano</a></li>
+    </ul>
+
+
   <h2>Equipment</h2>
   <ul>
     {% for p in products %}
@@ -18,6 +32,8 @@
     {% empty %}
       <li>No products yet.</li>
     {% endfor %}
+
+    
   </ul>
 
   <h2>Instruments</h2>
@@ -33,4 +49,7 @@
       <li>No products yet.</li>
     {% endfor %}
   </ul>
+
+
+
 {% endblock %}
