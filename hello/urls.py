@@ -12,4 +12,7 @@ urlpatterns = [
     path("preview/drums/", views.drums_page, name="preview-drums"),
     path("preview/guitar/", views.guitar_page, name="preview-guitar"),
     path("preview/piano/", views.piano_page, name="preview-piano"),
+    path('feedback/', views.feedback_view, name='feedback'),
+    path('feedback/thanks/', views.feedback_thanks, name='feedback_thanks'),
 ]
+
