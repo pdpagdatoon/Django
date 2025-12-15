@@ -17,6 +17,11 @@ class ProductDetailView(DetailView):
     template_name = "hello/product_detail.html"
     context_object_name = "product"
 
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        handle_comment_section(request)
+        return self.get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         comment_form, comments = handle_comment_section(self.request)
