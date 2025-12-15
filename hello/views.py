@@ -13,7 +13,6 @@ def home(request):
 
 # part of generating a page when adding a product through admin
 class ProductDetailView(DetailView):
-    comment_form, comments = handle_comment_section(request)
     model = Product
     template_name = "hello/product_detail.html"
     context_object_name = "product"
