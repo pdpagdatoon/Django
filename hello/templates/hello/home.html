@@ -3,21 +3,57 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <h1>Music Object Display Forum</h1>
-  <p>Select a product to view details and leave a review.</p>
+
+  <div class="home-hero">
+    <h1 class="page-title">Music Object Display Forum</h1>
+    <p class="page-subtitle">Click a product to view the custom product page.</p>
+  </div>
+
+  <div class="card-grid">
+    <a class="card" href="{% url 'preview-audiomixer' %}">
+      <div class="card-title">Audio Mixer</div>
+      <div class="card-desc">Studio mixing, controls, and audio balancing.</div>
+    </a>
+
+    <a class="card" href="{% url 'preview-earbuds' %}">
+      <div class="card-title">Earbuds</div>
+      <div class="card-desc">Portable listening and daily use.</div>
+    </a>
+
+    <a class="card" href="{% url 'preview-jackcable' %}">
+      <div class="card-title">Jack Cable</div>
+      <div class="card-desc">Audio cable for instruments and equipment.</div>
+    </a>
+
+    <a class="card" href="{% url 'preview-compacteddisc' %}">
+      <div class="card-title">Blank CD</div>
+      <div class="card-desc">Physical media for storing audio.</div>
+    </a>
+
+    <a class="card" href="{% url 'preview-cdplayer' %}">
+      <div class="card-title">CD Player</div>
+      <div class="card-desc">Classic playback for your music collection.</div>
+    </a>
+
+    <a class="card" href="{% url 'preview-drums' %}">
+      <div class="card-title">Drum Set</div>
+      <div class="card-desc">Percussion setup for rhythm and practice.</div>
+    </a>
+
+    <a class="card" href="{% url 'preview-guitar' %}">
+      <div class="card-title">Electric Guitar</div>
+      <div class="card-desc">Custom guitar page with styling.</div>
+    </a>
+
+    <a class="card" href="{% url 'preview-piano' %}">
+      <div class="card-title">Piano</div>
+      <div class="card-desc">Keys and chords for every genre.</div>
+    </a>
+  </div>
 
 
-  <h2>Products</h2>
-    <ul>
-      <li><a href="{% url 'preview-audiomixer' %}">Audio Mixer</a></li>
-      <li><a href="{% url 'preview-earbuds' %}">Earbuds</a></li>
-      <li><a href="{% url 'preview-jackcable' %}">Jack Cable</a></li>
-      <li><a href="{% url 'preview-compacteddisc' %}">Blank CD</a></li>
-      <li><a href="{% url 'preview-cdplayer' %}">CD Player</a></li>
-      <li><a href="{% url 'preview-drums' %}">Drum Set</a></li>
-      <li><a href="{% url 'preview-guitar' %}">Electric Guitar</a></li>
-      <li><a href="{% url 'preview-piano' %}">Piano</a></li>
-    </ul>
+
+  <!--
 
 
   <h2>Equipment</h2>
@@ -49,6 +85,9 @@
       <li>No products yet.</li>
     {% endfor %}
   </ul>
+
+
+-->
 
 
 

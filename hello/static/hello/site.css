@@ -23,9 +23,118 @@
 
 .body-content {
     padding: 5px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1050px;   
+    margin: 0 auto;
+    padding: 28px 40px;
+    /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
 }
 
 input[name=message] {
     width: 80%;
+}
+
+
+
+.page-title{
+  font-size: 44px;
+  margin: 18px 0 8px 0;
+}
+
+.page-subtitle{
+  font-size: 16px;
+  color: #444;
+  margin: 0 0 18px 0;
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.card{
+  display: block;
+  padding: 16px;
+  border: 1px solid #e4e4e4;
+  border-radius: 14px;
+  text-decoration: none;
+  background: #fff;
+  color: inherit;
+  transition: transform 0.08s ease, border-color 0.08s ease;
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  border-color: #bdbdbd;
+}
+
+.card-title{
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card-desc{
+  font-size: 14px;
+  color: #555;
+}
+
+
+
+html, body {
+  height: 100%;
+}
+body.page{
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  /* darker + richer gradient */
+  background:
+    radial-gradient(1200px 700px at 15% 0%, rgba(120,170,255,0.45) 0%, rgba(120,170,255,0) 60%),
+    radial-gradient(1000px 650px at 90% 12%, rgba(255,120,180,0.40) 0%, rgba(255,120,180,0) 55%),
+    radial-gradient(900px 600px at 50% 100%, rgba(140,90,255,0.22) 0%, rgba(140,90,255,0) 55%),
+    linear-gradient(180deg, #eef2ff 0%, #dfe6ff 35%, #f7f8ff 100%);
+}
+
+.page-content{
+  flex: 1;
+}
+
+
+.home-hero{
+  text-align: center;
+  margin: 18px 0 18px 0;
+}
+
+.home-hero .page-title{
+  margin: 0 0 8px 0;
+}
+
+.home-hero .page-subtitle{
+  margin: 0;
+}
+
+
+.site-footer{
+  margin-top: auto;
+  border-top: 1px solid #e6e6e6;
+  padding: 16px 0;
+  color: #444;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+}
+
+
+
+
+@media (max-width: 1100px){
+  .card-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px){
+  .body-content{ padding: 20px 18px; }
+  .card-grid{ grid-template-columns: 1fr; }
 }
